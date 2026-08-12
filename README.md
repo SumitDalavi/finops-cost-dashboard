@@ -11,6 +11,7 @@ Cloud costs are the new technical debt. Teams over-provision resources "just in 
 This project provides two integrated capabilities:
 1. **Cloud Cost API**: A FastAPI backend that queries Azure Cost Management APIs to surface cost breakdowns by resource group, service, and tag
 2. **K8s Right-Sizing Recommender**: Analyzes Kubernetes resource utilization (CPU/memory requests vs actual usage) and recommends optimal resource requests
+3. **Automated Remediation**: Can automatically generate GitHub/GitLab Pull Requests to the GitOps repository to apply the recommended right-sizing changes.
 
 ```
 ┌────────────────┐     ┌────────────────────┐     ┌──────────────┐
@@ -38,7 +39,8 @@ Opening the Azure portal and viewing Cost Analysis is not FinOps. This project d
 │   │   └── azure_client.py    # Azure Cost Management SDK wrapper
 │   ├── rightsizing/
 │   │   ├── routes.py          # Right-sizing recommendation endpoints
-│   │   └── analyzer.py        # Resource utilization analyzer
+│   │   ├── analyzer.py        # Resource utilization analyzer
+│   │   └── pr_generator.py    # GitOps PR generation logic
 │   └── models.py              # Pydantic schemas
 ├── Dockerfile
 ├── docker-compose.yml
