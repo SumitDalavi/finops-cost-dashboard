@@ -1,3 +1,6 @@
 do-not-commit/
 __pycache__/
 *.db
+.venv/
+venv/
+*.pyc

@@ -65,6 +65,79 @@ Opening the Azure portal and viewing Cost Analysis is not FinOps. This project d
 | Right-sizing as separate module | Clean separation allows this component to work independently with any K8s cluster |
 | JSON API over UI | API-first enables consumption by Grafana, Slack bots, and CI/CD pipelines |
 
+
+## ðŸ“‹ Prerequisites
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| [Docker](https://www.docker.com/) | >= 24.x | Container runtime |
+| [Docker Compose](https://docs.docker.com/compose/) | >= 2.x | Multi-container orchestration |
+| [curl](https://curl.se/) or browser | Any | API testing |
+
+*For local dev without Docker: Python >= 3.11, pip*
+
+## ðŸš€ Step-by-Step Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/SumitDalavi/finops-cost-dashboard.git
+cd finops-cost-dashboard
+
+# 2. Build and start
+docker-compose up -d --build
+
+# 3. Verify it's running
+curl http://localhost:8080/health
+```
+
+The API is now available at **http://localhost:8080** | Swagger UI at **http://localhost:8080/docs**
+
+## ðŸ§ª Usage & Demo
+
+### Cloud Cost Analysis
+```bash
+# Get monthly cost breakdown
+curl http://localhost:8080/api/v1/costs/monthly?period=2026-08
+
+# Get costs grouped by environment (dev/staging/prod)
+curl http://localhost:8080/api/v1/costs/by-environment?period=2026-08
+
+# Get costs grouped by team
+curl http://localhost:8080/api/v1/costs/by-team?period=2026-08
+```
+
+### Kubernetes Right-Sizing
+```bash
+# Get right-sizing recommendations for all pods
+curl http://localhost:8080/api/v1/k8s/recommendations
+
+# Apply a recommendation (generates a GitOps PR)
+curl -X POST http://localhost:8080/api/v1/k8s/apply \
+  -H "Content-Type: application/json" \
+  -d '{
+    "pod_name": "api-gateway-7d8f9c6b5-x2k4m",
+    "namespace": "production",
+    "gitops_repo_url": "https://github.com/org/k8s-manifests"
+  }'
+```
+
+### Interactive Testing
+Open **http://localhost:8080/docs** for the full Swagger UI.
+
+## âœ… Verification
+
+| Check | Command | Expected |
+|-------|---------|----------|
+| Health | `curl http://localhost:8080/health` | `{"status": "ok"}` |
+| Costs | `curl http://localhost:8080/api/v1/costs/monthly` | Cost breakdown JSON |
+| Right-Sizing | `curl http://localhost:8080/api/v1/k8s/recommendations` | Pod recommendations |
+| Swagger | Open `http://localhost:8080/docs` | Interactive API docs |
+
+```bash
+# Stop the service
+docker-compose down
+```
+
 ## 👨‍💻 Author
 
 *Built to demonstrate FinOps engineering: programmatic cost management and Kubernetes resource optimization.*
