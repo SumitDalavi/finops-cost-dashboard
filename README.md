@@ -2,6 +2,9 @@
 
 > Azure Cost Management API + Kubernetes right-sizing recommender — giving engineering teams real-time cost visibility and actionable optimization recommendations.
 
+> **⚠️ PoC Note:** Azure Cost Management API calls use a mock data layer — no real Azure billing credentials required. The right-sizing analyzer and API structure are fully functional.
+
+
 ## The Problem
 
 Cloud costs are the new technical debt. Teams over-provision resources "just in case," and nobody notices until the monthly bill arrives. FinOps (Financial Operations) is a growing discipline that brings cost accountability to engineering teams — but most organizations lack the tooling to make it actionable.
@@ -66,7 +69,7 @@ Opening the Azure portal and viewing Cost Analysis is not FinOps. This project d
 | JSON API over UI | API-first enables consumption by Grafana, Slack bots, and CI/CD pipelines |
 
 
-## ðŸ“‹ Prerequisites
+## 📋 Prerequisites
 
 | Tool | Version | Purpose |
 |------|---------|---------|
@@ -76,7 +79,7 @@ Opening the Azure portal and viewing Cost Analysis is not FinOps. This project d
 
 *For local dev without Docker: Python >= 3.11, pip*
 
-## ðŸš€ Step-by-Step Setup
+## 🚀 Step-by-Step Setup
 
 ```bash
 # 1. Clone the repository
@@ -92,7 +95,7 @@ curl http://localhost:8080/health
 
 The API is now available at **http://localhost:8080** | Swagger UI at **http://localhost:8080/docs**
 
-## ðŸ§ª Usage & Demo
+## 🧪 Usage & Demo
 
 ### Cloud Cost Analysis
 ```bash
@@ -124,7 +127,7 @@ curl -X POST http://localhost:8080/api/v1/k8s/apply \
 ### Interactive Testing
 Open **http://localhost:8080/docs** for the full Swagger UI.
 
-## âœ… Verification
+## ✅ Verification
 
 | Check | Command | Expected |
 |-------|---------|----------|
@@ -140,4 +143,9 @@ docker-compose down
 
 ## 👨‍💻 Author
 
-*Built to demonstrate FinOps engineering: programmatic cost management and Kubernetes resource optimization.*
+**Sumit Dalavi** — Senior DevSecOps / Platform Engineer
+[GitHub](https://github.com/SumitDalavi) | [LinkedIn](https://in.linkedin.com/in/sumit-dalavi-762838129)
+
+---
+
+*Built with a focus on production-grade patterns, not toy demos.*
