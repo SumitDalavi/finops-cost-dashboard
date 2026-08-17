@@ -1,5 +1,15 @@
 # Architecture: FinOps Cost Dashboard
 
+## System Diagram
+The following Mermaid.js sequence diagram maps the core workflow and interactions:
+
+```mermaid
+sequenceDiagram
+    BillingAPI->>DataLake: Cost Explorer Data
+DataLake->>Aggregator: Group by tag
+Aggregator->>Dashboard: Visualize
+```
+
 ## Cost Management Module
 The `cost/` module wraps the Azure Cost Management API. In production, it would use `azure-mgmt-costmanagement` to query actual billing data. The mock data layer simulates realistic cost breakdowns by resource group, service, and tags (team, environment).
 
