@@ -6,3 +6,23 @@ services:
     ports:
       - "8080:8080"
     restart: always
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DB_URL=postgresql://postgres:postgres@postgres:5432/finops
+    depends_on:
+      - redis
+      - postgres
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: finops
+    ports:
+      - "5432:5432"
