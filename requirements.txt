@@ -1,12 +1,12 @@
-fastapi==0.104.1
+fastapi
 uvicorn==0.24.0
-pydantic==2.5.2
+pydantic
 
 pytest
 redis  
 psycopg2-binary  
 sqlalchemy 
-httpx  
+httpx==0.27.0
 requests  
 azure-identity
 azure-mgmt-costmanagement
