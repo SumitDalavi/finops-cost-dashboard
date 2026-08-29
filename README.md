@@ -1,6 +1,9 @@
+> **NOTE:** This repository is an archival lab or partial prototype. It is not actively maintained and should not be used as a reference for production-grade deployments or performance benchmarks.
+
+
 # FinOps Cost Dashboard 💰📊
 
-> **Maturity:** Partial Prototype
+> **Maturity:** Functional Prototype
 > _Azure Cost Management API + Kubernetes right-sizing recommender._
 
 > **⚠️ PoC Note:** Azure Cost Management API calls use a mock data layer — no real Azure billing credentials required. The right-sizing analyzer and API structure are fully functional.
@@ -164,7 +167,7 @@ docker-compose down
 
 ---
 
-*Built with a focus on production-grade patterns, not toy demos.*
+*Built with a focus on robust patterns, not toy demos.*
 
 
 ## CI & Reliability Updates (August 2026)
