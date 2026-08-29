@@ -1,14 +1,37 @@
-# Architecture: FinOps Cost Dashboard
+# Architecture — finops-cost-dashboard
+> Last updated: 2026-08-29 | Maturity: Partial Prototype
+> _FinOps dashboard with Azure Cost adapter._
 
 ## System Diagram
-The following Mermaid.js sequence diagram maps the core workflow and interactions:
-
 ```mermaid
-sequenceDiagram
-    BillingAPI->>DataLake: Cost Explorer Data
-DataLake->>Aggregator: Group by tag
-Aggregator->>Dashboard: Visualize
+flowchart TD
+    UI(["React Dashboard"])
+    API["FastAPI Backend"]
+    Azure["Azure Cost API (Real/Mock)"]
+    K8s["Kubernetes Simulator"]
+
+    UI -->|"GET /costs"| API
+    API -->|"Fetch usage"| Azure
+    Azure -.-> API
+    UI -->|"GET /recommendations"| API
+    API -->|"Fetch metrics"| K8s
+    K8s -.-> API
 ```
+
+## Component Table
+| Component | File | Responsibility | Tech |
+|---|---|---|---|
+| Frontend | `src/` | Interactive charts | React/Vite |
+| API | `app/main.py` | Data aggregation | FastAPI |
+| Azure Adapter | `app/cost/azure_client.py`| Interface to Azure Billing | Python |
+
+## Dependency Honesty Table
+| Dependency | Status | Notes |
+|---|---|---|
+| FastAPI | **Real** | Full API implementation. |
+| React | **Real** | Client dashboard rendering. |
+| Azure SDK | **Stubbed** | Interface is real, but uses mock data when credentials absent. |
+
 
 ## Cost Management Module
 The `cost/` module wraps the Azure Cost Management API. In production, it would use `azure-mgmt-costmanagement` to query actual billing data. The mock data layer simulates realistic cost breakdowns by resource group, service, and tags (team, environment).

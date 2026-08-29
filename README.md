@@ -1,6 +1,7 @@
 # FinOps Cost Dashboard 💰📊
 
-> Azure Cost Management API + Kubernetes right-sizing recommender — giving engineering teams real-time cost visibility and actionable optimization recommendations.
+> **Maturity:** Partial Prototype
+> _Azure Cost Management API + Kubernetes right-sizing recommender._
 
 > **⚠️ PoC Note:** Azure Cost Management API calls use a mock data layer — no real Azure billing credentials required. The right-sizing analyzer and API structure are fully functional.
 
@@ -141,6 +142,21 @@ Open **http://localhost:8080/docs** for the full Swagger UI.
 docker-compose down
 ```
 
+## Mock Boundaries (Honest Scope)
+
+| What | Status | Details |
+|---|---|---|
+| Dashboard UI | **Real** | React frontend is fully functional. |
+| Azure Client | **Real/Mocked** | Architecture supports real Azure auth; currently uses mock stub if credentials omitted. |
+| Kubernetes Analyzer| **Mocked** | Uses simulated K8s metrics. |
+
+## 📚 Documentation
+
+- [Architecture](docs/ARCHITECTURE.md) — System diagram and component details
+- [Runbook](docs/runbook.md) — Setup, commands, and expected outputs
+- [Decisions](docs/decisions.md) — ADRs for FinOps approach
+- [Changelog](docs/changelog.md) — Change history
+
 ## 👨‍💻 Author
 
 **Sumit Dalavi** — Senior DevSecOps / Platform Engineer
@@ -149,6 +165,7 @@ docker-compose down
 ---
 
 *Built with a focus on production-grade patterns, not toy demos.*
+
 
 ## CI & Reliability Updates (August 2026)
 
@@ -189,10 +206,3 @@ npm run test
 - **Authentication:** Currently runs in a trusted local execution environment without explicit TLS termination.
 
 ---
-
-## 5. Mock Boundaries (Audit Compliance)
-
-To comply with strict portfolio audit requirements, we explicitly define the boundaries of what is real vs. simulated:
-
-- **Fully Implemented:** The core state machine, API routes, database schemas, and integration tests are real and fully functional.
-- **Mocked / Demo Mode:** Live Azure/AWS Billing APIs are simulated using a deterministic local data seeder.
