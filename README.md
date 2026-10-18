@@ -4,6 +4,10 @@
 # FinOps Cost Dashboard 💰📊
 
 [![Release](https://img.shields.io/github/v/release/SumitDalavi/finops-cost-dashboard?color=blue&logo=github)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
+[![Release Workflow](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/release.yml/badge.svg)](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/release.yml)
+[![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
+
+[![Release](https://img.shields.io/github/v/release/SumitDalavi/finops-cost-dashboard?color=blue&logo=github)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
 [![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
 
 > **Maturity:** Functional Prototype
@@ -213,7 +217,7 @@ npm run test
 
 ---
 
-## Release & Verification
+## Release & Security Verification
 
 The project includes an automated DevSecOps release pipeline (`.github/workflows/release.yml`) triggered on semantic version tags (`v*.*.*`).
 
@@ -233,3 +237,10 @@ gh release view v0.1.0 --repo SumitDalavi/finops-cost-dashboard
 gh release download v0.1.0 --repo SumitDalavi/finops-cost-dashboard --pattern "sbom.spdx.json"
 cat sbom.spdx.json | jq .
 ```
+
+## Documentation
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Runbook](docs/runbook.md)
+- [Decisions](docs/decisions.md)
+- [Changelog](docs/changelog.md)
