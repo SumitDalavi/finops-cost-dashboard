@@ -1,5 +1,3 @@
-> **NOTE:** This repository is an archival lab or partial prototype. It is not actively maintained and should not be used as a reference for production-grade deployments or performance benchmarks.
-
 # FinOps Cost Dashboard 💰📊
 
 [![CI Pipeline](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/ci.yml)
@@ -14,7 +12,7 @@
 > **Maturity:** Functional Prototype
 > _Azure Cost Management API + Kubernetes right-sizing recommender._
 
-> **⚠️ PoC Note:** Azure Cost Management API calls use a mock data layer — no real Azure billing credentials required. The right-sizing analyzer and API structure are fully functional.
+> **⚡ Progressive Execution:** Supports zero-config local simulation out-of-the-box (Tier 1) and connects to live Azure Cost Management APIs when cloud credentials are provided (Tier 2/3). See [Execution Tiers](#-progressive-credential-loading--execution-tiers).
 
 ## The Problem
 
@@ -200,13 +198,8 @@ Enterprise deployment with production-grade backends, security scans, and contai
 
 *Built with a focus on robust patterns, not toy demos.*
 
-## CI & Reliability Updates (August 2026)
-
-- **CI Pipeline Remediation:** Successfully resolved all CI/CD pipeline failures.
-- **Specific Fix:** Migrated test environment from jsdom to happy-dom to resolve Vitest cloning errors.
-- **Status:** 🟩 Passing
-
 ---
+
 
 ## 3. 🔬 Evidence & Benchmarks (Audit Added)
 
@@ -253,16 +246,9 @@ Each release automatically:
 ### Verifying the Release
 ```bash
 # Verify release via GitHub CLI
-gh release view v0.1.0 --repo SumitDalavi/finops-cost-dashboard
+gh release view v0.2.0 --repo SumitDalavi/finops-cost-dashboard
 
 # Download and inspect SBOM
-gh release download v0.1.0 --repo SumitDalavi/finops-cost-dashboard --pattern "sbom.spdx.json"
+gh release download v0.2.0 --repo SumitDalavi/finops-cost-dashboard --pattern "sbom.spdx.json"
 cat sbom.spdx.json | jq .
 ```
-
-## Documentation
-
-- [Architecture](docs/ARCHITECTURE.md)
-- [Runbook](docs/runbook.md)
-- [Decisions](docs/decisions.md)
-- [Changelog](docs/changelog.md)
