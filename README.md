@@ -1,20 +1,20 @@
 > **NOTE:** This repository is an archival lab or partial prototype. It is not actively maintained and should not be used as a reference for production-grade deployments or performance benchmarks.
 
-
 # FinOps Cost Dashboard 💰📊
 
-[![Release](https://img.shields.io/github/v/release/SumitDalavi/finops-cost-dashboard?color=blue&logo=github)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
+[![CI Pipeline](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/SumitDalavi/finops-cost-dashboard?color=0969da&label=release&logo=github)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
 [![Release Workflow](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/release.yml/badge.svg)](https://github.com/SumitDalavi/finops-cost-dashboard/actions/workflows/release.yml)
-[![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
-
-[![Release](https://img.shields.io/github/v/release/SumitDalavi/finops-cost-dashboard?color=blue&logo=github)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
-[![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/finops-cost-dashboard/releases)
+[![GHCR Container](https://img.shields.io/badge/ghcr.io-v0.2.0-blue?logo=docker&logoColor=white)](https://github.com/SumitDalavi/finops-cost-dashboard/pkgs/container/finops-cost-dashboard)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org)
+[![SBOM](https://img.shields.io/badge/SBOM-SPDX%202.3-blueviolet?logo=spdx)](https://github.com/SumitDalavi/finops-cost-dashboard/releases/tag/v0.2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 > **Maturity:** Functional Prototype
 > _Azure Cost Management API + Kubernetes right-sizing recommender._
 
 > **⚠️ PoC Note:** Azure Cost Management API calls use a mock data layer — no real Azure billing credentials required. The right-sizing analyzer and API structure are fully functional.
-
 
 ## The Problem
 
@@ -78,7 +78,6 @@ Opening the Azure portal and viewing Cost Analysis is not FinOps. This project d
 | Mock data layer | Keeps PoC self-contained; Azure Cost Management APIs require billing access |
 | Right-sizing as separate module | Clean separation allows this component to work independently with any K8s cluster |
 | JSON API over UI | API-first enables consumption by Grafana, Slack bots, and CI/CD pipelines |
-
 
 ## 📋 Prerequisites
 
@@ -201,13 +200,11 @@ Enterprise deployment with production-grade backends, security scans, and contai
 
 *Built with a focus on robust patterns, not toy demos.*
 
-
 ## CI & Reliability Updates (August 2026)
 
 - **CI Pipeline Remediation:** Successfully resolved all CI/CD pipeline failures.
 - **Specific Fix:** Migrated test environment from jsdom to happy-dom to resolve Vitest cloning errors.
 - **Status:** 🟩 Passing
-
 
 ---
 
