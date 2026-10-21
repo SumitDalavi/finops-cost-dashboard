@@ -9,8 +9,7 @@
 [![SBOM](https://img.shields.io/badge/SBOM-SPDX%202.3-blueviolet?logo=spdx)](https://github.com/SumitDalavi/finops-cost-dashboard/releases/tag/v0.2.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-> **Maturity:** Functional Prototype
-> _Azure Cost Management API + Kubernetes right-sizing recommender._
+> Cloud financial operations dashboard integrating Azure Cost Management analytics and Kubernetes workload right-sizing recommendations.
 
 > **⚡ Progressive Execution:** Supports zero-config local simulation out-of-the-box (Tier 1) and connects to live Azure Cost Management APIs when cloud credentials are provided (Tier 2/3). See [Execution Tiers](#-progressive-credential-loading--execution-tiers).
 
